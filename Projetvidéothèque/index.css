@@ -1,0 +1,24 @@
+
+
+
+body
+{
+    background-image:  url('Fondecrans/Fond1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%
+ 
+}
+
+p
+{
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: darkgray;
+}
+
+form
+{
+    color: aquamarine;
+}
