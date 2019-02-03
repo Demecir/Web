@@ -15,6 +15,8 @@
             die('Erreur : '.$e->getMessage());
         }
     $bdd->exec("INSERT INTO `users` (`ID_User`, `username`, `pass`, `email`) VALUES (NULL, '$username', '$password', '$email');")
-?>
+    ?>
+    <?php 
+    header('Location: verification.php');
+    ?>
 
-<p>C'est fait retour à la page d'accueil <a href="index.php">Accueil</a> ?</p>  
