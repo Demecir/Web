@@ -26,12 +26,19 @@
         {
             die('Erreur : '.$e->getMessage());
         }
-    $reponse = $bdd->query("SELECT film_users.ID_Users, film_users.ID_film, film.titre, film.realisateur,film.genre,film.affiche FROM film_users INNER JOIN film ON film_users.ID_film = film.ID_film WHERE film_users.ID_Users='$_SESSION[ID]' ;");
+    $reponse = $bdd->query("SELECT film_users.ID_Users, film_users.ID_film, film.titre, film.realisateur,film.genre,film.affiche,commentaires.note,commentaires.com 
+    FROM film_users
+    INNER JOIN film 
+    INNER JOIN commentaires
+    ON film_users.ID_film = film.ID_film AND  film_users.ID_film = commentaires.ID_film
+    WHERE film_users.ID_Users='$_SESSION[ID]' AND commentaires.ID_Users='$_SESSION[ID]';");
     $data=$reponse;
 
-    foreach($data as $row)
+    
+
+    foreach($data as $row )
     {
-    ?>
+            ?>
         <table>
                 <tr>
                     <td>    </td>
@@ -41,14 +48,16 @@
                 <tr>
                     <td>Titre:<?php echo $row['titre'] ?> </td>
                     <td>Réalisateur:<?php echo $row['realisateur'] ?> </td>
+                
+
                     <td>Genre:<?php echo $row['genre'] ?> </td>
-                    <td>Note: 18/20 </td>
+                    <td>Note: <?php echo $row['note'] ?>/20 </td>
                 </tr>
                 <tr>
-                    <td>Commentaire: Un bon film post-apocalypse </td>
+                    <td>Commentaire: <?php echo $row['com'] ?> </td>
                 </tr>
             </table>
-    <?php
+            <?php  
     }
 ?>
     </body>
