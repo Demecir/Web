@@ -8,13 +8,17 @@
 
     <nav>
             <ul>
-                <li><a href="utilisateur.html">Accueil</a></li>
-                <li><a href="newfiche.html">Nouveau film</a></li>
-                <li><a href="delogge.php">Se delogguer</a></li>
+                <ol><a href="utilisateur.php">Accueil</a></ol>
+                <ol><a href="newfiche.html">Nouveau film</a></ol>
+                <ol><a href="delogge.php">Se delogguer</a></ol>
             </ul>
     </nav>
 
-    <h1>Vos films:</h1>
+   
+
+    <header>
+        <h1> <span> Vos films:</span></h1>
+    </header>
 
      <?php      
      session_start ();
@@ -41,20 +45,16 @@
             ?>
         <table>
                 <tr>
-                    <td>    </td>
-                    <td> <img src= "<?php echo $row['affiche']?>" width="500" height="550" /></td>
-                    <td>    </td>
+                    <td colspan="4"> <img src= "<?php echo $row['affiche']?>" width="500" height="550" /></td>
                 </tr>
                 <tr>
-                    <td>Titre:<?php echo $row['titre'] ?> </td>
-                    <td>Réalisateur:<?php echo $row['realisateur'] ?> </td>
-                
-
-                    <td>Genre:<?php echo $row['genre'] ?> </td>
-                    <td>Note: <?php echo $row['note'] ?>/20 </td>
+                    <td>   Titre:<h2><?php echo $row['titre'] ?>    </h2></td>
+                    <td>   Réalisateur:<h2><?php echo $row['realisateur'] ?>    </h2></td>
+                    <td>  Genre:<h2><?php echo $row['genre'] ?>    </h2></td>
+                    <td>   Note:<h2> <?php echo $row['note'] ?>/20   </h2></td>
                 </tr>
                 <tr>
-                    <td>Commentaire: <?php echo $row['com'] ?> </td>
+                    <td colspan="4">Commentaire: <h3><?php echo $row['com'] ?> </h3> </td>
                 </tr>
             </table>
             <?php  
