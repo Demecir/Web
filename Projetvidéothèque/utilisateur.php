@@ -9,6 +9,7 @@
     <nav>
             <ul>
                 <ol><a href="utilisateur.php">Accueil</a></ol>
+                <ol><a href="ajouter.html">Ajouter un film</a></ol>
                 <ol><a href="newfiche.html">Nouveau film</a></ol>
                 <ol><a href="delogge.php">Se delogguer</a></ol>
             </ul>
@@ -30,18 +31,19 @@
         {
             die('Erreur : '.$e->getMessage());
         }
-    $reponse = $bdd->query("SELECT film_users.ID_Users, film_users.ID_film, film.titre, film.realisateur,film.genre,film.affiche,commentaires.note,commentaires.com 
+    $data = $bdd->query("SELECT film_users.ID_Users, film_users.ID_film, film.titre, film.realisateur,film.genre,film.affiche,commentaires.note,commentaires.com 
     FROM film_users
     INNER JOIN film 
     INNER JOIN commentaires
     ON film_users.ID_film = film.ID_film AND  film_users.ID_film = commentaires.ID_film
     WHERE film_users.ID_Users='$_SESSION[ID]' AND commentaires.ID_Users='$_SESSION[ID]';");
-    $data=$reponse;
-
+   
+    
     
 
     foreach($data as $row )
     {
+        
             ?>
         <table>
                 <tr>
@@ -52,8 +54,6 @@
                     <td>   Réalisateur:<h2><?php echo $row['realisateur'] ?>    </h2></td>
                     <td>  Genre:<h2><?php echo $row['genre'] ?>    </h2></td>
                     <td>   Note:<h2> <?php echo $row['note'] ?>/20   </h2></td>
-                </tr>
-                <tr>
                     <td colspan="4">Commentaire: <h3><?php echo $row['com'] ?> </h3> </td>
                 </tr>
             </table>

@@ -56,6 +56,8 @@
 
             <form method="post" action="insertion.php">
                <h1> <input value="<?php echo $row['ID_film'] ?>" type="text" name="ID_film"  />  </h1>
+               <label>Note</label> <input type="text" name="note"  />
+                <label>Commentaire</label> <input type="text" name="com"  />
             <input type="submit"  value="Ajouter" />
             </form>
 
