@@ -1,48 +1,40 @@
 body
 {
-    background-color: darkgray;
+    background-image:  url('Fondecrans/Fond1.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%
 }
 
 header
 {
-    font-size: 2cm;
+ text-align: center;
+ color: rgb(18, 28, 119);
+ background-color: rgba(255, 0, 0, 0.418);
+ font-size: 45px;
+ font-family: 'Times New Roman', Times, serif;
+ margin-left: 10cm;
 }
 
-nav
+section
 {
-    font-family: fantasy;
+    align-content: center;
+    margin-left: 18%;
 }
-
 table
 {
-    margin: auto;
-    text-align: center;
     align-content: center;
+    margin-bottom: 2cm; 
+    margin-left: 10px;
+    border: rgba(25, 23, 44, 0.418);
+    color: rgba(255, 255, 255, 0.493);
+    font-size: 1cm;
+    
 }
 
-h1
+aside
 {
-    text-align: center;
-}
-h2
-{
-    text-align: center;
-}
-h3
-{
-    text-align: center;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1cm;
 }
 
-tr
-{
-    text-align: center;
-   
-}
-
-
-
-form
-{
-    text-align: center;
-}

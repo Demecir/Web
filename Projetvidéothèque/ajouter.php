@@ -22,8 +22,10 @@
             die('Erreur : '.$e->getMessage());
         }
 
-        $bdd->exec("INSERT INTO `film` (`ID_film`, `titre`, `realisateur`, `genre`, `affiche`) VALUES (NULL, '$titre', '$realisateur', '$genre', '$affiche");
+        $bdd->exec("INSERT INTO `film` (`ID_film`, `titre`, `realisateur`, `genre`, `affiche`) VALUES (NULL, '$titre', '$realisateur', '$genre', '$affiche')");
+        
+
         
         header('Location: utilisateur.php');
 
-
+?> 

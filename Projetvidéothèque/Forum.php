@@ -1,16 +1,11 @@
 <html>
-
-    <head>
+   
+        <head>
             <link rel="stylesheet" href="./utilisateur.css"/>
     </head>
 
-    <body>
-    <?php      
-     session_start ();
-     ?>
-
     <header>
-        <h1> <span> Vos films:</span></h1>
+        <h1> <span>les derniers films ajoutés</span></h1>
     </header>
 
     <aside>
@@ -23,8 +18,8 @@
             </ul>
     </aside>
 
-   
-     <?php      
+
+<?php      
     try
         {
              $bdd = new PDO ('mysql:host=localhost;dbname=test;charset=utf8','root','',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -33,12 +28,11 @@
         {
             die('Erreur : '.$e->getMessage());
         }
-    $data = $bdd->query("SELECT film_users.ID_Users, film_users.ID_film, film.titre, film.realisateur,film.genre,film.affiche,commentaires.note,commentaires.com 
-    FROM film_users
+    $data = $bdd->query("SELECT DISTINCT *
+    FROM  commentaires
     INNER JOIN film 
-    INNER JOIN commentaires
-    ON film_users.ID_film = film.ID_film AND  film_users.ID_film = commentaires.ID_film
-    WHERE film_users.ID_Users='$_SESSION[ID]' AND commentaires.ID_Users='$_SESSION[ID]';");
+    WHERE commentaires.ID_film = film.ID_film
+    LIMIT 0, 10 ;");
    
     
     
